@@ -1,0 +1,16 @@
+{
+  "name": "ncsv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bean-parser": "^1.0.1",
+    "flat": "^4.1.0"
+  }
+}

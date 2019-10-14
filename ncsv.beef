@@ -1,0 +1,47 @@
+// cell type def
+number comma => cell { value: Number(left.raw) }
+date   comma => cell { value: new Date(left.raw) }
+true   comma => cell { value: true }
+empty  comma => cell { value: undefined }
+symbol comma => cell { value: left.raw }
+string comma => cell { value: left.raw.slice(1,-1).replace(/""/g, '"') }
+
+// new line ended cell
+number newline => last_cell { value: Number(left.raw) }
+date   newline => last_cell { value: new Date(left.raw) }
+true   newline => last_cell { value: true }
+empty  newline => last_cell { value: undefined }
+symbol newline => last_cell { value: left.raw }
+string newline => last_cell { value: left.raw.slice(1,-1).replace(/""/g, '"') }
+
+// chain of cells, not reached a last_cell yet
+cell_chain  cell => cell_chain { columns: [...left.columns, right.value ] }
+chain_start cell => cell_chain { columns: [...left.columns, right.value ] }
+
+// start of a chain
+cell cell => chain_start { columns: [ left.value, right.value ] }
+
+// we have a row if we reach a newline ended chain
+cell        last_cell => row { columns: [ left.value, right.value ] }
+chain_start last_cell => row { columns: [...left.columns, right.value ] }
+cell_chain  last_cell => row { columns: [...left.columns, right.value ] }
+
+// this should finish the parsing process
+document eof => ncsv { rows: left.rows }
+
+// grab all rows and append to document
+document row => document {
+  header: left.header,
+  rows: [
+    ...left.rows,
+    Object.fromEntries(left.header.columns.zip(right.columns)).unflatten()
+  ]
+}
+
+// start of a document
+row row => document {
+  header: left,
+  rows: [
+    Object.fromEntries(left.columns.zip(right.columns)).unflatten()
+  ]
+}
