@@ -1,5 +1,5 @@
 const patterns = {
-  string: /^"([^"]|"")*?"/,
+  string: /^^"(?:[^"]|".)*"/,
   comma: /^,/,
   number: /^([+-]?(\d+(\.\d+)?)|(\.\d+))(?=,|\n)/,
   true: /^true(?=,|\n)/i,
