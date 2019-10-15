@@ -2,6 +2,7 @@
 
 const argv = require('minimist')(process.argv)
 const { parse } = require('./parser')
+const { fromJSON } = require('./jsonlib')
 const fs = require('fs')
 
 const usage = `
