@@ -13,5 +13,8 @@
     "bean-parser": "^1.0.1",
     "flat": "^4.1.0",
     "minimist": "^1.2.0"
+  },
+  "bin": {
+    "ncsv": "./cli.js"
   }
 }

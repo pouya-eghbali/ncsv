@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const argv = require('minimist')(process.argv)
 const { parse } = require('./parser')
 const flat = require('flat')
