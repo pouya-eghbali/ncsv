@@ -2,7 +2,8 @@ const { bean, beef } = require('bean-parser')
 const { unflatten } = require('flat')
 const fs = require("fs");
 const ncsvLexer = require("./lexer.js");
-const ncsvModel = fs.readFileSync("./ncsv.beef", { encoding: "utf8" });
+const { resolve } = require('path')
+const ncsvModel = fs.readFileSync(resolve(__dirname, "ncsv.beef"), { encoding: "utf8" });
 const model = beef(ncsvModel);
 
 Object.prototype.unflatten = function () {
