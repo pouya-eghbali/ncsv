@@ -1,0 +1,31 @@
+[
+  {
+    "person": {
+      "age": 28.6,
+      "name": "pouya",
+      "email": "test@example.com"
+    },
+    "drinks": {
+      "likes": [
+        "coffee"
+      ],
+      "dislikes": [
+        null
+      ]
+    }
+  },
+  {
+    "person": {
+      "name": "nathalie",
+      "birth": "1991-06-03T00:00:00.000Z"
+    },
+    "drinks": {
+      "likes": [
+        "chocolate milk"
+      ],
+      "dislikes": [
+        "coffee"
+      ]
+    }
+  }
+]
