@@ -34,7 +34,7 @@ document row => document {
   header: left.header,
   rows: [
     ...left.rows,
-    Object.fromEntries(left.header.columns.zip(right.columns)).unflatten()
+    helpers.unflatten(Object.fromEntries(helpers.zip(left.header.columns, right.columns)))
   ]
 }
 
@@ -42,6 +42,6 @@ document row => document {
 row row => document {
   header: left,
   rows: [
-    Object.fromEntries(left.columns.zip(right.columns)).unflatten()
+    helpers.unflatten(Object.fromEntries(helpers.zip(left.columns, right.columns)))
   ]
 }

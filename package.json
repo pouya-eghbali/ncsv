@@ -1,16 +1,31 @@
 {
   "name": "ncsv",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouya-eghbali/ncsv.git"
+  },
+  "keywords": [
+    "parser",
+    "csv",
+    "ncsv",
+    "csv to json",
+    "csv to parser",
+    "nested csv"
+  ],
+  "author": "Pouya Eghbali",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pouya-eghbali/ncsv/issues"
+  },
+  "homepage": "https://github.com/pouya-eghbali/ncsv#readme",
   "dependencies": {
-    "bean-parser": "^1.0.1",
+    "bean-parser": "^1.0.6",
     "flat": "^4.1.0",
     "minimist": "^1.2.0"
   },

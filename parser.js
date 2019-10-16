@@ -1,18 +1,14 @@
 const { bean, beef } = require('bean-parser')
-const { unflatten } = require('flat')
 const fs = require("fs");
 const ncsvLexer = require("./lexer.js");
 const { resolve } = require('path')
 const ncsvModel = fs.readFileSync(resolve(__dirname, "ncsv.beef"), { encoding: "utf8" });
-const model = beef(ncsvModel);
 
-Object.prototype.unflatten = function () {
-  return unflatten(this)
-}
+const { unflatten } = require('flat')
+const zip = (left, right) => left.map((item, index) => [item, right[index]])
 
-Array.prototype.zip = function (arr) {
-  return this.map((item, index) => [item, arr[index]])
-}
+const helpers = { unflatten, zip }
+const model = beef(ncsvModel, helpers);
 
 const parse = source => {
   const tokens = ncsvLexer(source);
