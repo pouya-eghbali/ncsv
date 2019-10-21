@@ -1,6 +1,6 @@
 {
   "name": "ncsv",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/pouya-eghbali/ncsv#readme",
   "dependencies": {
-    "bean-parser": "^1.0.6",
+    "bean-parser": "^1.0.7",
+    "denque": "^1.4.1",
     "flat": "^4.1.0",
     "minimist": "^1.2.0"
   },

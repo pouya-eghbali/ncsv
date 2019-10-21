@@ -1,4 +1,5 @@
 const patterns = require("./patterns");
+const denque = require("denque")
 
 function lexer(string) {
   let tokens = [];
@@ -43,7 +44,7 @@ function lexer(string) {
     index: string.length,
     raw: "eof"
   });
-  return tokens;
+  return new denque(tokens);
 }
 
 module.exports = lexer;
