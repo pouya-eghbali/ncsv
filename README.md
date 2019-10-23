@@ -2,6 +2,50 @@
 
 Nested CSV parser. Flattens JSON into a CSV, and restores the JSON from the CSV.
 
+## What is it?
+
+It turns this:
+
+|person.name|person.email    |person.age|person.birth|drinks.likes.0|drinks.dislikes.0|
+|-----------|----------------|----------|------------|--------------|-----------------|
+|pouya      |test@example.com|28.6      |            |coffee        |                 |
+|nathalie   |                |          |1991-06-03  |chocolate milk|coffee           |
+
+into this:
+
+```json
+[
+  {
+    "person": {
+      "age": 28.6,
+      "name": "pouya",
+      "email": "test@example.com"
+    },
+    "drinks": {
+      "likes": [
+        "coffee"
+      ]
+    }
+  },
+  {
+    "person": {
+      "name": "nathalie",
+      "birth": "1991-06-03T00:00:00.000Z"
+    },
+    "drinks": {
+      "likes": [
+        "chocolate milk"
+      ],
+      "dislikes": [
+        "coffee"
+      ]
+    }
+  }
+]
+```
+
+and vice versa.
+
 ## Install
 
 `ncsv` is hosted on npm:
