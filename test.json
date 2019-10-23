@@ -8,9 +8,6 @@
     "drinks": {
       "likes": [
         "coffee"
-      ],
-      "dislikes": [
-        null
       ]
     }
   },

@@ -34,7 +34,9 @@ document row => document {
   header: left.header,
   rows: [
     ...left.rows,
-    helpers.unflatten(Object.fromEntries(helpers.zip(left.header.columns, right.columns)))
+    helpers.unflatten(Object.fromEntries(
+      helpers.zip(left.header.columns, right.columns)
+        .filter(([key, value]) => value != undefined)))
   ]
 }
 
@@ -42,6 +44,8 @@ document row => document {
 row row => document {
   header: left,
   rows: [
-    helpers.unflatten(Object.fromEntries(helpers.zip(left.columns, right.columns)))
+    helpers.unflatten(Object.fromEntries(
+      helpers.zip(left.columns, right.columns)
+        .filter(([key, value]) => value != undefined)))
   ]
 }
