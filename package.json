@@ -26,7 +26,6 @@
   "homepage": "https://github.com/pouya-eghbali/ncsv#readme",
   "dependencies": {
     "bean-parser": "^1.0.7",
-    "denque": "^1.4.1",
     "flat": "^4.1.0",
     "minimist": "^1.2.0"
   },

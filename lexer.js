@@ -1,5 +1,4 @@
 const patterns = require("./patterns");
-const denque = require("denque")
 
 function lexer(string) {
   let tokens = [];
@@ -14,12 +13,13 @@ function lexer(string) {
         match = string.slice(i).match(pattern);
         if (match != null) {
           if (
-            (lastMatched == 'comma' && ['comma', 'newline'].includes(name)) ||
-            (lastMatched == 'newline' && name == 'comma')) {
+            (lastMatched == "comma" && ["comma", "newline"].includes(name)) ||
+            (lastMatched == "newline" && name == "comma")
+          ) {
             tokens.push({
-              name: 'empty',
+              name: "empty",
               index: i,
-              raw: ''
+              raw: ""
             });
           }
           tokens.push({
@@ -29,7 +29,7 @@ function lexer(string) {
           });
           i += match[0].length;
           matched = true;
-          lastMatched = name
+          lastMatched = name;
           break;
         }
       }
@@ -44,7 +44,7 @@ function lexer(string) {
     index: string.length,
     raw: "eof"
   });
-  return new denque(tokens);
+  return tokens;
 }
 
 module.exports = lexer;
